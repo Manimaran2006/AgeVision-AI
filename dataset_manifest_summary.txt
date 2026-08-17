@@ -1,0 +1,17 @@
+DATASET MANIFEST SUMMARY
+================================================================================
+
+Total samples: 442,089
+Age range: 1 - 100
+Unique ages: 100
+Random seed: 42
+
+Sources:
+  age_prediction_up: 233,200 (52.7%)
+  age_train: 208,885 (47.2%)
+  20-50: 4 (0.0%)
+
+Splits:
+  train: 309,462
+  val: 66,313
+  test: 66,314

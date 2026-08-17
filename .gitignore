@@ -1,0 +1,60 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Model Checkpoints
+*.pth
+*.pt
+*.pkl
+*.h5
+*.caffemodel
+*.pb
+
+# Environment Variables
+*.env
+.env
+.env.local
+
+# Data
+data/
+dataset_manifest.json
+*.npz
+*.zip
+*.tar.gz
+*.tar
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter & Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+logs/
+
+# OS & Binaries
+.vs/
+*.VisualStudioConfig
+*.exe
+cloudflared.exe

@@ -1,0 +1,17 @@
+================================================================================
+DLDL AGE ESTIMATION MODEL — FINAL EVALUATION REPORT
+================================================================================
+
+Generated: 2026-08-16 13:12:32
+MAE:  6.532 years
+RMSE: 8.767 years
+MSE:  76.865
+Accuracy within +/-3 yrs: 31.70%
+Accuracy within +/-5 yrs: 49.75%
+Accuracy within +/-10 yrs: 78.97%
+
+  Child          Samples: 1479     MAE: 6.972 yrs | RMSE: 11.431 yrs
+  Teenager       Samples: 3178     MAE: 10.388 yrs | RMSE: 12.317 yrs
+  Young Adult    Samples: 30022    MAE: 5.838 yrs | RMSE: 7.597 yrs
+  Adult          Samples: 26418    MAE: 5.988 yrs | RMSE: 7.779 yrs
+  Senior         Samples: 5216     MAE: 10.810 yrs | RMSE: 14.459 yrs

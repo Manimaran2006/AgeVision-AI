@@ -1,0 +1,6 @@
+Age_Group,Age_Range,Sample_Count,MAE_Years,RMSE_Years
+Child,0-12,1479,13.155,14.958
+Teenager,13-19,3178,11.128,12.344
+Young Adult,20-35,30022,5.077,6.590
+Adult,36-59,26418,6.496,8.321
+Senior,60-200,5216,13.108,16.687

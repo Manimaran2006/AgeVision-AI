@@ -1,0 +1,26 @@
+# Requirements for Age Prediction Training Pipeline
+# Install with: pip install -r requirements.txt
+
+# Core ML/DL
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.21.0
+scikit-learn>=1.0.0
+opencv-python>=4.5.0
+Pillow>=8.0.0
+
+# Utilities
+tqdm>=4.60.0
+pandas>=1.0.0
+
+# Optional for GPU support
+# cuda-toolkit (install separately or use torch with CUDA prebuilt)
+
+# Deep Learning & Multi-Attribute Models
+timm>=0.9.0
+facenet-pytorch>=2.5.0
+transformers>=4.30.0
+
+# Production Deployment Server
+gunicorn>=20.1.0
+flask>=2.0.0
