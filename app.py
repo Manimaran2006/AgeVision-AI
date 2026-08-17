@@ -696,4 +696,4 @@ if __name__ == "__main__":
     print("=" * 60)
     load_predictor()
     print("\n  Open your browser: http://127.0.0.1:8080\n")
-    app.run(host="0.0.0.0", port=8080, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=False)
