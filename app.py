@@ -663,31 +663,59 @@ def predict():
         return jsonify({"error": "No image provided."}), 400
 
     file = request.files["image"]
+
     if not file.filename:
         return jsonify({"error": "Empty filename."}), 400
 
     try:
-        # Read uploaded image as PIL, convert to numpy
+        # Read uploaded image as PIL and convert to RGB NumPy array
         image_bytes = file.read()
-        pil_image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+        pil_image = Image.open(
+            io.BytesIO(image_bytes)
+        ).convert("RGB")
         img_array = np.array(pil_image)
 
+        # Gunicorn imports app.py instead of executing the
+        # __main__ block, so initialize the predictor here.
+        load_predictor()
+
+        # Safety check
+        if predictor is None:
+            return jsonify({
+                "error": "Age prediction model failed to initialize."
+            }), 500
+
+        # Run prediction
         result = predictor.predict(img_array)
 
+        # Handle model-level errors
         if "error" in result:
-            return jsonify({"error": result["error"]}), 400
+            return jsonify({
+                "error": result["error"]
+            }), 400
 
+        # Return prediction results
         return jsonify({
-            "predicted_age":       result["predicted_age"],
+            "predicted_age": result["predicted_age"],
             "predicted_age_group": result["predicted_age_group"],
-            "likely_age_range":    result["likely_age_range"],
-            "confidence_level":    result["confidence_level"],
-            "predicted_gender":    result.get("predicted_gender", "Unknown"),
-            "gender_confidence":   result.get("gender_confidence", "0%"),
+            "likely_age_range": result["likely_age_range"],
+            "confidence_level": result["confidence_level"],
+            "predicted_gender": result.get(
+                "predicted_gender",
+                "Unknown"
+            ),
+            "gender_confidence": result.get(
+                "gender_confidence",
+                "0%"
+            )
         })
 
     except Exception as e:
-        return jsonify({"error": f"Prediction failed: {str(e)}"}), 500
+        print(f"[ERROR] Prediction failed: {e}")
+
+        return jsonify({
+            "error": f"Prediction failed: {str(e)}"
+        }), 500
 
 
 if __name__ == "__main__":
